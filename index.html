@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        /* filter: blur(5px); */
+        background: linear-gradient(to right, lightblue, lightblue, lightgreen, lightgreen);
+    }
+
+    .container-1 {
+        margin-left: 200px;
+        margin-right: 200px;
+        margin-top: 150px;
+        border-radius: 50px;
+        border: 6px solid black;
+        font-size: xx-large;
+        box-shadow: 10px 10px 40px black;
+        background: linear-gradient(to left, lightblue, lightblue, lightgreen, lightgreen);
+    }
+
+    .container-2 {
+        margin-left: 50px;
+        margin-right: 50px;
+        border-radius: 50px;
+        border-top: 2px solid transparent;
+        border-left: 2px solid transparent;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
+        margin-top: 40px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: xx-large;
+    }
+
+    .container-3 {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-left: 50px;
+        margin-top: 30px;
+        background: white;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: xx-large;
+        border-radius: 50px;
+        height: 50px;
+    }
+
+    .container-4 {
+        padding-left: 50px;
+    }
+
+    .container-5 {
+        display: flex;
+    }
+    .container-6{
+        padding-left: 20px;
+    }
+</style>
+
+<body>
+    <div class="container-1">
+        <input type="number" name="number" id="N1" placeholder="Enter The Num 1" class="container-2">
+        +
+        <input type="number" name="number" id="N2" placeholder="Enter The Num 2" class="container-2">
+        <br>
+        <input type="number" name="number" id="D1" placeholder="Enter The Den 1" class="container-2">
+        +
+        <input type="number" name="number" id="D2" placeholder="Enter The Den 2" class="container-2">
+        <div class="container-5">
+            <button class="container-3" onclick="ress()">Find L.C.M</button>
+            <h1 id="ress" class="container-4"></h1>
+        </div>
+        <div>
+            <div class="container-5">
+                <button class="container-3" onclick="res()">Result</button>
+                <h1 class="container-6" id="res"></h1>
+                <h1 class="container-6" id="re"></h1>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function ress() {
+        const n1 = document.getElementById("N1").value;
+        const n2 = document.getElementById("D1").value;
+        const d1 = document.getElementById("D1").value;
+        const d2 = document.getElementById("D2").value;
+        let min = (d1 > d2) ? d1 : d2;
+        while (true) {
+            if (min % d1 == 0 && min % d2 == 0) {
+                document.getElementById("ress").innerHTML = "<b><i><e><u>" + d1 + " and " + d2 + " is " + min + "</u></e></i></b>"
+                break;
+            }
+            min++;
+        }
+    }
+    function res() {
+        const n1 = document.getElementById("N1").value;
+        const n2 = document.getElementById("D1").value;
+        const d1 = document.getElementById("D1").value;
+        const d2 = document.getElementById("D2").value;
+        let min = (d1 > d2) ? d1 : d2;
+        while (true) {
+            if (min % d1 == 0 && min % d2 == 0) {
+                var lcm = min;
+                var x1 = lcm / n1;
+                var p1 = lcm * x1;
+                var x2 = lcm / n2;
+                var p2 = lcm * x2;
+                var a = p1 + p2;
+                document.getElementById("res").innerHTML = "<sup>" + a + "</sup>" + "/" + "<sub>" + lcm + "</sub>" + " = ";
+                for (var i = 2; i <= lcm; i++) {
+                    if (a % i == 0 && a % i == 0) {
+                        var num1 = a / i;
+                        var num2 = lcm / i;
+                        document.getElementById("re").innerHTML = "<sup>" + num1 + "</sup>" + "/" + "<sub>" + num2 + "</sup>";
+                    }
+
+                }
+                break;
+            }
+            min++;
+        }
+    }
+</script>
+
+</html>
